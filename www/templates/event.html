@@ -1,0 +1,15 @@
+<ion-view title="{{::event.title}}">
+    <ion-content overflow-scroll="true" padding="true" class="has-header">
+        <div style="text-align:center;">
+            <img ng-src="{{::event.img}}" width="100%" height="auto">
+        </div>
+        <h3>Attendees</h3>
+        <ion-list>
+            <ion-item ng-repeat="attendee in event.attendees" class="item-thumbnail-left">
+                <img ng-src="{{::attendee.photo}}">
+                <h2>{{::attendee.name}}</h2>
+                <p>{{::attendee.title}}</p>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

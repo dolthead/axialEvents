@@ -1,18 +1,25 @@
 angular.module('app.controllers', [])
-  
-.controller('eventsCtrl', function($scope) {
+
+.controller('eventsCtrl', function($scope, EventsService) {
+    $scope.events = [];
+
+    EventsService.getEvents().then(function(res) {
+        $scope.events = res;
+    });
 
 })
-   
-.controller('atlantaSummit2016Ctrl', function($scope) {
+
+.controller('eventCtrl', function($scope, $stateParams, EventsService) {
+    $scope.event = [];
+
+    EventsService.getEventDetails($stateParams.id).then(function(res) {
+        $scope.event = res;
+
+        EventsService.getEventAttendees($stateParams.id).then(function(res) {
+            $scope.event.attendees = res;
+        });
+
+    });
 
 })
-   
-.controller('sanFranciscoSummit2016Ctrl', function($scope) {
 
-})
-   
-.controller('dallasSummit2016Ctrl', function($scope) {
-
-})
- 

@@ -1,20 +1,10 @@
 <ion-view title="Events">
     <ion-content overflow-scroll="true" padding="true" class="has-header">
         <ion-list>
-            <ion-item class="item-thumbnail-left" ui-sref="atlantaSummit2016">
-                <img src="img/6YS77136Q5yo9V7yjI6g_Atlanta-Summit-hero-image.jpg">
-                <h2>Atlanta Summit 2016</h2>
-                <p>February 9th, 2016</p>
-            </ion-item>
-            <ion-item class="item-thumbnail-left" ui-sref="sanFranciscoSummit2016">
-                <img src="img/oQ9mqXNQzeoPtXXwzXzZ_san-francisco-summit-hero-image.jpg">
-                <h2>San Francisco Summit 2016</h2>
-                <p>March 16, 2016</p>
-            </ion-item>
-            <ion-item class="item-thumbnail-left" ui-sref="dallasSummit2016">
-                <img src="img/WTUsCmmCQjWl43vRjGOx_dallas-summit-homepage-image.jpg">
-                <h2>Dallas Summit 2016</h2>
-                <p>April 13, 2016</p>
+            <ion-item class="item-thumbnail-left" ng-repeat="event in events" ui-sref="event({id:event.id})">
+                <img ng-src="{{::event.img}}">
+                <h2>{{::event.title}}</h2>
+                <p>{{::event.date}}</p>
             </ion-item>
         </ion-list>
     </ion-content>
